@@ -12,7 +12,7 @@ namespace Application.Exceptions
         public ApiExceptions() : base() { }
         public ApiExceptions(string message) : base(message) { }
 
-        public ApiExceptions(string message, params object[] args) : base(String.Format(CultureInfo.CurrentCulture, message, args) { }  
+        public ApiExceptions(string message, params object[] args) : base(String.Format(CultureInfo.CurrentCulture, message, args)) { }  
 
     }
 }
