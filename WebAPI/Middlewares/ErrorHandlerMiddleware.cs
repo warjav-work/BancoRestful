@@ -31,7 +31,7 @@ namespace WebAPI.Middlewares
 
                 switch (ex)
                 {
-                    case Application.Exceptions.ApiExceptions e:
+                    case Application.Exceptions.ApiException e:
                         // custom application error
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         break;
