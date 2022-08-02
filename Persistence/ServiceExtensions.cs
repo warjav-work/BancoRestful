@@ -19,8 +19,17 @@ namespace Persistence
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
             #region Repositories
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(MyRepositoryAsync<>));
+
+            #endregion
+
+            #region CachingRedis
+            services.AddStackExchangeRedisCache(options => 
+            {
+                options.Configuration = configuration.GetValue<string>("Caching:RedisConnection");
+            });
 
             #endregion
         }

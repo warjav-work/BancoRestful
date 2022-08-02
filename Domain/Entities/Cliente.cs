@@ -1,9 +1,5 @@
 ﻿using Domain.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
@@ -21,13 +17,17 @@ namespace Domain.Entities
         public int Edad
         {
 
-            get 
+            get
             {
-                if(this._edad <= 0)
+                if (this._edad <= 0)
                 {
                     this._edad = new DateTime(DateTime.Now.Subtract(this.FechaNacimiento).Ticks).Year - 1;
                 }
-                return this._edad; 
+                return this._edad;
+            }
+            set
+            {
+                this._edad = value;
             }
         }
 
